@@ -14,7 +14,7 @@ Measure = require("lib/measure")
 function setup()
   return {
     properties = {
-      max_speed_for_map_matching      = 150/3.6, -- 150kmph -> m/s
+      max_speed_for_map_matching      = 110/3.6, -- 110kmph -> m/s
       -- For routing based on duration, but weighted for preferring certain roads
       weight_name                     = 'routability',
       -- For shortest duration without penalties for accessibility
@@ -22,10 +22,10 @@ function setup()
       -- For shortest distance without penalties for accessibility
       -- weight_name                     = 'distance',
       process_call_tagless_node      = false,
-      u_turn_penalty                 = 30,
+      u_turn_penalty                 = 60,
       continue_straight_at_waypoint  = true,
       use_turn_restrictions          = true,
-      left_hand_driving              = false,
+      left_hand_driving              = true,
       traffic_light_penalty          = 2,
     },
 
@@ -44,7 +44,7 @@ function setup()
 
     -- Size of the vehicle, to be limited mostly by legal restriction of the way
     vehicle_length = 6.0, -- in meters, 4.8m is the length of large or familly car
-    vehicle_weight = 6000, -- in kilograms
+    vehicle_weight = 15000, -- in kilograms
 
     -- a list of suffixes to suppress in name change instructions. The suffixes also include common substrings of each other
     suffix_list = {
