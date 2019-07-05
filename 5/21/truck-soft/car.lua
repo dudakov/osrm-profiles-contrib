@@ -14,7 +14,7 @@ Measure = require("lib/measure")
 function setup()
   return {
     properties = {
-      max_speed_for_map_matching      = 110/3.6, -- 110kmph -> m/s
+      max_speed_for_map_matching      = 90/3.6, -- 110kmph -> m/s
       -- For routing based on duration, but weighted for preferring certain roads
       weight_name                     = 'routability',
       -- For shortest duration without penalties for accessibility
@@ -26,7 +26,7 @@ function setup()
       continue_straight_at_waypoint  = true,
       use_turn_restrictions          = true,
       left_hand_driving              = true,
-      traffic_light_penalty          = 2,
+      traffic_light_penalty          = 60,
     },
 
     default_mode              = mode.driving,
@@ -39,12 +39,12 @@ function setup()
     cardinal_directions       = false,
 
     -- Size of the vehicle, to be limited by physical restriction of the way
-    vehicle_height = 2.8, -- in meters
-    vehicle_width = 2.2, -- in meters
+    vehicle_height = 4.0, -- in meters
+    vehicle_width = 2.8, -- in meters
 
     -- Size of the vehicle, to be limited mostly by legal restriction of the way
-    vehicle_length = 6.0, -- in meters, 4.8m is the length of large or familly car
-    vehicle_weight = 15000, -- in kilograms
+    vehicle_length = 18.0, -- in meters, 4.8m is the length of large or familly car
+    vehicle_weight = 41000, -- in kilograms
 
     -- a list of suffixes to suppress in name change instructions. The suffixes also include common substrings of each other
     suffix_list = {
@@ -207,7 +207,7 @@ function setup()
 
     route_speeds = {
       ferry = 5,
-      shuttle_train = 10
+      shuttle_train = 5
     },
 
     bridge_speeds = {
@@ -225,32 +225,32 @@ function setup()
       ["concrete:lanes"] = nil,
       paved = nil,
 
-      cement = 80,
-      compacted = 80,
-      fine_gravel = 80,
+      cement = 60,
+      compacted = 60,
+      fine_gravel = 40,
 
       paving_stones = 60,
-      metal = 60,
-      bricks = 60,
+      metal = 40,
+      bricks = 40,
 
-      grass = 40,
-      wood = 40,
+      grass = 20,
+      wood = 10,
       sett = 40,
-      grass_paver = 40,
-      gravel = 40,
-      unpaved = 40,
-      ground = 40,
-      dirt = 40,
+      grass_paver = 10,
+      gravel = 30,
+      unpaved = 20,
+      ground = 20,
+      dirt = 10,
       pebblestone = 40,
-      tartan = 40,
+      tartan = 30,
 
       cobblestone = 30,
-      clay = 30,
+      clay = 10,
 
       earth = 20,
       stone = 20,
       rocky = 20,
-      sand = 20,
+      sand = 10,
 
       mud = 10
     },
@@ -276,10 +276,10 @@ function setup()
 
     -- http://wiki.openstreetmap.org/wiki/Speed_limits
     maxspeed_table_default = {
-      urban = 50,
-      rural = 90,
-      trunk = 110,
-      motorway = 130
+      urban = 60,
+      rural = 85,
+      trunk = 85,
+      motorway = 85
     },
 
     -- List only exceptions
@@ -313,7 +313,7 @@ function setup()
       ["ro:trunk"] = 100,
       ["ru:living_street"] = 20,
       ["ru:urban"] = 60,
-      ["ru:motorway"] = 110,
+      ["ru:motorway"] = 85,
       ["uk:nsl_single"] = (60*1609)/1000,
       ["uk:nsl_dual"] = (70*1609)/1000,
       ["uk:motorway"] = (70*1609)/1000,
