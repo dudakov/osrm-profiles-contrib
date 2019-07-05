@@ -14,7 +14,7 @@ Measure = require("lib/measure")
 function setup()
   return {
     properties = {
-      max_speed_for_map_matching      = 90/3.6, -- 110kmph -> m/s
+      max_speed_for_map_matching      = 80/3.6, -- 110kmph -> m/s
       -- For routing based on duration, but weighted for preferring certain roads
       weight_name                     = 'routability',
       -- For shortest duration without penalties for accessibility
@@ -138,10 +138,10 @@ function setup()
 
     speeds = Sequence {
       highway = {
-        motorway        = 85,
-        motorway_link   = 40,
-        trunk           = 80,
-        trunk_link      = 35,
+        motorway        = 70,
+        motorway_link   = 30,
+        trunk           = 70,
+        trunk_link      = 30,
         primary         = 60,
         primary_link    = 25,
         secondary       = 40,
@@ -257,11 +257,11 @@ function setup()
 
     -- max speed for tracktypes
     tracktype_speeds = {
-      grade1 =  60,
-      grade2 =  40,
-      grade3 =  30,
-      grade4 =  25,
-      grade5 =  20
+      grade1 =  50,
+      grade2 =  35,
+      grade3 =  25,
+      grade4 =  15,
+      grade5 =  5
     },
 
     -- max speed for smoothnesses
@@ -276,10 +276,10 @@ function setup()
 
     -- http://wiki.openstreetmap.org/wiki/Speed_limits
     maxspeed_table_default = {
-      urban = 60,
-      rural = 85,
-      trunk = 85,
-      motorway = 85
+      urban = 35,
+      rural = 70,
+      trunk = 80,
+      motorway = 80
     },
 
     -- List only exceptions
@@ -312,8 +312,8 @@ function setup()
       ['pl:motorway'] = 140,
       ["ro:trunk"] = 100,
       ["ru:living_street"] = 20,
-      ["ru:urban"] = 60,
-      ["ru:motorway"] = 85,
+      ["ru:urban"] = 40,
+      ["ru:motorway"] = 80,
       ["uk:nsl_single"] = (60*1609)/1000,
       ["uk:nsl_dual"] = (70*1609)/1000,
       ["uk:motorway"] = (70*1609)/1000,
